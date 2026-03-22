@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bastards from the Bush — A Journey with Bob Ellis & Les Murray</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ochre: #C4873B;
+    --ochre-light: #D4A05A;
+    --sienna: #8B4513;
+    --sienna-deep: #6B3410;
+    --bark: #3E2723;
+    --bark-light: #5D4037;
+    --cream: #F5EDDA;
+    --cream-warm: #F0E4CC;
+    --parchment: #EDE0C8;
+    --dust: #D6C9A8;
+    --eucalyptus: #4A6741;
+    --eucalyptus-muted: #5C7A52;
+    --dry-grass: #B8A361;
+    --charcoal: #2C2416;
+    --text-dark: #2C2416;
+    --text-mid: #4A3C28;
+    --text-light: #6B5D4A;
+    --sky-pale: #C8B99A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--text-dark);
+    font-family: 'EB Garamond', 'Georgia', serif;
+    font-size: 19px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(
+      175deg,
+      #3E2723 0%,
+      #5D4037 20%,
+      #8B6914 45%,
+      #C4873B 60%,
+      #D4A05A 72%,
+      #B8A361 85%,
+      #C8B99A 100%
+    );
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba(75, 103, 65, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(139, 69, 19, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, var(--cream));
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+  }
+
+  .hero-label {
+    font-family: 'Lora', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(245, 237, 218, 0.6);
+    margin-bottom: 2.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    display: block;
+    font-size: 0.45em;
+    letter-spacing: 0.05em;
+    margin-top: 0.8rem;
+    color: rgba(245, 237, 218, 0.75);
+  }
+
+  .hero-subtitle {
+    font-family: 'Lora', serif;
+    font-size: 1.15rem;
+    color: rgba(245, 237, 218, 0.65);
+    font-style: italic;
+    margin-top: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .hero-year {
+    display: inline-block;
+    margin-top: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: rgba(245, 237, 218, 0.4);
+    letter-spacing: 0.3em;
+    border-top: 1px solid rgba(245, 237, 218, 0.15);
+    padding-top: 1rem;
+  }
+
+  /* ---- MAIN CONTENT ---- */
+  .transcript {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4rem 2rem 8rem;
+  }
+
+  /* Epigraph */
+  .epigraph {
+    text-align: center;
+    padding: 3rem 0 4rem;
+    border-bottom: 1px solid var(--dust);
+    margin-bottom: 4rem;
+  }
+
+  .epigraph p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: var(--sienna);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* Section dividers */
+  .section-break {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--ochre);
+    font-size: 1.5rem;
+    letter-spacing: 0.5em;
+    opacity: 0.4;
+    user-select: none;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--sienna-deep);
+    margin: 3rem 0 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--ochre-light);
+    display: inline-block;
+  }
+
+  /* ---- SPEAKER STYLES ---- */
+
+  /* Bob Ellis - narrator */
+  .ellis {
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+  }
+
+  .ellis::first-line {
+    /* subtle emphasis on first line */
+  }
+
+  .ellis .speaker-name {
+    display: none;
+  }
+
+  /* Les Murray */
+  .murray {
+    margin: 2rem 0 2rem 0;
+    padding: 1.5rem 0 1.5rem 1.75rem;
+    border-left: 3px solid var(--eucalyptus-muted);
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    position: relative;
+  }
+
+  .murray::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background: linear-gradient(to right, rgba(74, 103, 65, 0.04), transparent);
+    pointer-events: none;
+  }
+
+  .speaker-name {
+    display: block;
+    font-family: 'Lora', serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  .murray .speaker-name {
+    color: var(--eucalyptus);
+  }
+
+  .other .speaker-name {
+    color: var(--ochre);
+  }
+
+  /* Other speakers */
+  .other {
+    margin: 1.5rem 0;
+    padding: 1.2rem 0 1.2rem 1.75rem;
+    border-left: 2px solid var(--ochre-light);
+    color: var(--text-mid);
+    font-size: 1.05rem;
+  }
+
+  /* ---- POETRY ---- */
+  .poetry {
+    margin: 2rem 0;
+    padding: 1.8rem 2rem;
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.04), rgba(196, 135, 59, 0.06));
+    border-radius: 2px;
+    position: relative;
+    font-style: italic;
+    line-height: 1.85;
+    color: var(--bark-light);
+  }
+
+  .poetry::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--sienna), var(--ochre));
+    border-radius: 2px;
+  }
+
+  .poetry-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--sienna);
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .poetry br {
+    display: block;
+    content: '';
+    margin-top: 0.15em;
+  }
+
+  /* Inline dialogue markers */
+  .dialogue-inline {
+    color: var(--text-mid);
+    font-style: italic;
+  }
+
+  /* ---- COLOPHON ---- */
+  .colophon {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+    text-align: center;
+    border-top: 1px solid var(--dust);
+  }
+
+  .colophon p {
+    font-family: 'Lora', serif;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+
+  /* ---- SCROLL ANIMATIONS ---- */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 640px) {
+    body { font-size: 17px; }
+    .transcript { padding: 2.5rem 1.25rem 5rem; }
+    .murray, .other { padding-left: 1.25rem; }
+    .poetry { padding: 1.2rem 1.25rem; }
+    .hero { min-height: 85vh; padding: 3rem 1.5rem; }
+  }
+
+  /* Print styles */
+  @media print {
+    .hero { min-height: auto; padding: 2rem; background: none; }
+    .hero h1 { color: black; }
+    .hero-label, .hero-subtitle, .hero-year { color: #666; }
+    body::before { display: none; }
+    .murray { border-left-color: #999; }
+    .poetry { background: #f5f5f5; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-content">
+    <p class="hero-label">A Documentary Transcript</p>
+    <h1>Bastards<br>from the Bush<em>A Journey with Bob Ellis &amp; Les Murray</em></h1>
+    <p class="hero-subtitle">"Friendship is a conspiracy of things not said<br>in order that love may last."</p>
+    <span class="hero-year">1 9 9 8</span>
+  </div>
+</header>
+
+<!-- ============ TRANSCRIPT ============ -->
+<main class="transcript">
+
+  <div class="epigraph">
+    <p>Art is not born in you, it is grafted in you through a wound.</p>
+  </div>
+
+  <!-- ======== PROLOGUE ======== -->
+
+  <div class="ellis fade-in">
+    <p>Friendship is a conspiracy of things not said in order that love may last.</p>
+    <p>Les Murray has been my friend for 39 years. In the 38th of those years, Les nearly died after two weeks in a coma, and then was given the T.S. Eliot Poetry Prize, in part for nearly dying, I guess. And I began to tax my mind that I hadn't yet given back to him for all his friendship and tact and laughter, some good rare thing in my gift&thinsp;&mdash;&thinsp;a film, a thankful memoir, a premature memorial concert perhaps in a great hall somewhere. A continuing source of income, perhaps, because he'd always been dirt poor.</p>
+    <p>So I got to work on several fronts, this film being one of them. The concert, I suspected, would be a stuff-up, and it nearly was, but it's the thought that counts.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>With the droll men of physics who one day would capture the quark, with Germaine a few tables off, winning a hard conversation. And Lex, who cried, <em>Poetry is not the wine, but the cognac.</em></p>
+    <p>Ladies and gentlemen, Les Murray.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Our paths have diverged since first we were roommates and fellow students in 1959, and rival editors of undergraduate papers, and I became an ABC dog's body, and playwright, and columnist, and film auteur, and backroom speechwriter for politicians. While his was the path less travelled by&thinsp;&mdash;&thinsp;into the yellow wood, the adjacent Narnia, the other world of poetry.</p>
+    <p>We bitterly argued, of course, as Catholic and atheist from right and left, and wrote films and poems about each other. And he was my best man, and in certain seasons of youth, my best friend. And there were things now in our fifties we hadn't said, and jokes we hadn't shared. And time was fleeting.</p>
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== BUNYA - THE FARM ======== -->
+
+  <h2 class="section-title fade-in">Bunya</h2>
+
+  <div class="ellis fade-in">
+    <p>The first sign of the ego trip was unpunctuality. I'll tell you the other five when I get to know you better. It had been a wet, cold, lousy day all up. I'd been fired that morning from the proud position of moral guru of the <em>Sydney Morning Herald</em>. And I was in no mood for any further soggy delay.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Robert! G'day. Done your luggage? Know to come in out of the rain.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Les now lived in prefabricated peasant frugality on the farm in Bunya he bought for his father Cecil to live on in his last years. It was here he had his famous emotional crack-up and the subsequent liver abscess that nearly carried him off. We talked of these things.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>I woke up in the midst of this blizzard of, oh, cards and flowers and concern that I never knew was there. And when I went into John Hunter Hospital, full of pethidine, I wasn't at all sure I was going to wake up in this world, or any. And the last thing I heard them say was, <em>we might well not save this one.</em></p>
+    <p>I took it with great aplomb, you know. It was a rehearsal for death, I suppose.</p>
+    <p>And then I woke up and, oh, I thought it took me about a day to wake up. Apparently, it took more like a week. And people would come and ask me questions like, <em>Mr. Murray, do you know who you are? Do you know where you are?</em> And I would reply to them very slowly.</p>
+    <p>And, oh, a long time later, I saw a press release. My agent was putting out a press release on my health every few days, apparently. I had no hand in that. I didn't know about it. The one after I got reasonably woken up was: <em>Doctors at Newcastle's John Hunter Hospital announced today that poet Les Murray is now conscious and verbal.</em> So I'm going to call my next book <em>Conscious and Verbal</em>.</p>
+    <p>Alexander, who's our special boy, you know, he's autistic, he was pressed into answering phones. He'd never done that before and he would say to the people, <em>Dad is serious but stable.</em> So that could be another book title.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>It wonderfully concentrated my mind because it was so soon after Cecil's death. And I thought, my God, there is no schedule. Each of us could go at any time.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>No, Dad had died in the very beginning of January 1995. And I cracked up about only three months later while it was still fresh. I'll read you that poem. It's called <em>The Last Hellos.</em></p>
+  </div>
+
+  <div class="poetry fade-in">
+    <span class="poetry-title">"The Last Hellos"</span>
+    Don't die, Dad&mdash;<br>
+    but they die.<br><br>
+    This last year he was wandering,<br>
+    took off a new chainsaw blade<br>
+    and cobbled a spare from bits.<br>
+    <em>Perhaps if I lay down,<br>
+    my head will come better again.</em><br>
+    His left shoulder kept rising<br>
+    higher in his cardigan.<br><br>
+    He could see death in a face.<br>
+    Family used to call him in<br>
+    to look at sick ones and say.<br>
+    At his own time, he was told.<br>
+    The knob found in his head<br>
+    was duck egg size. Never hurt.<br>
+    <em>Two to six months, Cecil.</em><br><br>
+    <em>I'll be right,</em> he boomed<br>
+    to his poor sister on the phone.<br>
+    <em>I'll do that when I finish dying.</em><br><br>
+    Don't die, Cecil&mdash;<br>
+    but they do.<br><br>
+    Going for last drives in the bush,<br>
+    odd, massive, bored, slotted stumps,<br>
+    bony, white, in whipstick second growth.<br>
+    <em>I could chop all day.<br>
+    I could always cash a cheque<br>
+    in Sydney or anywhere,<br>
+    any of the shops.</em><br><br>
+    <em>Sorry, Dad, but, like,<br>
+    have you forgiven your enemies,<br>
+    your father and all them?</em><br>
+    All his lifetime of hurt:<br>
+    <em>I must have,</em> grin.<br>
+    <em>I don't think about that now.</em><br><br>
+    People can't say goodbye anymore.<br>
+    They say last hellos.<br><br>
+    Good boy, Cecil. No more bluey dog,<br>
+    no more cow time, no more stories.<br>
+    We're still using your imagination,<br>
+    it was stronger than all ours.<br><br>
+    Your grave's got littler somehow<br>
+    in the three months, more pointy<br>
+    as the clay shrivelled<br>
+    like a stuck zip in a coat.<br><br>
+    On your day there was a good crowd,<br>
+    family and people from away,<br>
+    but of course a lot had gone<br>
+    to their own funerals first.<br><br>
+    Snobs mind us off religion<br>
+    nowadays, if they can.<br>
+    Fuck them. I wish you God.
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>As you see, I wrote that entirely in the language we used to speak to each other, you know. My God.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Will you see him again?</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>I think so, yeah.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>How old will he be, mate?</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Oh, he'll be 33. All the dead in heaven are 33. You wouldn't know that. Even the ones who never reached it.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>I sometimes get the impression, Murray, that posterity is all there is.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Posterity, yeah. I wrote to the government about that once and proposed to them a scheme of funding the arts called <em>Posterity Now</em>. Give us the money which posterity's gonna owe us.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Murray, I know a man called Beazley who will, I swear, be Prime Minister by probably August. On one phone call, I could organise for you to be written into the Labour Party policy as the poet laureate on a butt of malmsey per annum and $3 a year, $30,000, $50,000&thinsp;&mdash;&thinsp;that's my final... Think about this.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>I'll keep my butt out of the malmsey, I think. No, I don't want anything like that. I took myself off the public drip feed years ago when they called me their token fascist. And I sort of make my living now the way writers often do and should, I think. Like farmers, you make your money out of bits and pieces, a bit of this and a bit of that.</p>
+    <p>My only title of honour that I want is the one I've always had, which is Cecil's Boy at Bunya. Mim and Cecil's Boy at Bunya.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>It was here too Les was finishing his verse novel, <em>Fredy Neptune</em>, about a man so burnt in war he had no feeling, and in odd hours learning the dialect of the Manning River Aborigines, and collecting and preserving their local mountain legends, and dodging political controversy sometimes and sometimes not.</p>
+    <p>This was landscape for me, mere cinematic backdrop. But for him it was heartland and sacred site, where he was begun and would in due course lie buried, like Cecil and Mim. And <em>Murray</em> is unimaginable and numberless now, far back, the land of the beginning of everything.</p>
+    <p>And it was here that you decided to become a poet?</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Yeah. December 1956. I had been thinking about it for a few weeks. And I came down here one evening to an old mill that's just up around the corner there on the river. It's gone now completely. And I was just sitting there, standing there in the mill, looking out at the mayflies on the river. A very still evening.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>And what did it mean to you? It sounds like a decision to travel in another country, or was it your own country? Was it your secret country?</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>All that. A decision to take up an instrument and learn to play it and see how well I could play it and just how far I could take it and what I could discover with it.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Murray, in some ways you're extremely like a peasant philistine. I mean, you don't go to the opera or the ballet, you are unable to get SBS.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>I had that thing that Aborigines call <em>big shame</em>, and you've got it too. The feeling of being abashed by better-dressed people, people in clean shirts and ties, you know.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>That's why Aborigines have not run revolutions and hijacked planes and gunned down people on courthouse steps the way other people, because they feel that big shame.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Maybe it's partly that, but also they're very civilised people, you know, they're very peaceful people. I had a lot of time for them. I mean, these are partly my cousins, and it's in places like these that the cousinship exists.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>There's a great secret Creole nation here, isn't there?</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>I believe in Creole. It's more congenial to me than dividing the ethnic identities. I'd rather see nature take its course and combine. Nature has wonderful ways of combining our savageries away, just through marriage.</p>
+  </div>
+
+  <div class="poetry fade-in">
+    Where will we hold Australia?<br>
+    We who have no other country,<br>
+    not indigenous, merely born here.<br>
+    Shall we be Australian<br>
+    in Paraguay again?<br>
+    Or on a Dublin street corner?<br>
+    Some of them like us in Dublin.
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== CHILDHOOD SCARRINGS ======== -->
+
+  <h2 class="section-title fade-in">The Wound</h2>
+
+  <div class="ellis fade-in">
+    <p>Memorably, Les once said that art is not born in you, it is grafted in you through a wound. That night after possibly too much red, we and Val, his Swiss-Hungarian graduate jazz-singing wife, who has, it is widely thought, the patience of a saint, compared and contrasted the details of our different childhood scarrings.</p>
+    <p>The worst night I ever had was the night when I was 10 and my sister was killed and the police came and told my father, who then told my mother, who very theatrically fell back with a gasp on the couch.</p>
+  </div>
+
+  <div class="other fade-in">
+    <span class="speaker-name">Val Murray</span>
+    <p>Fainted dead away?</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>No, well, she fell back and then she got up immediately and began to scream. And I kept thinking, <em>where is the music? Where is the music?</em> In the films at this point, there is music. <em>Where is the music?</em></p>
+    <p>And all that night, Dad, very politely on the phone, was ringing up everybody on earth to tell them, with great discipline and politeness, that she was dead. And I thought, <em>this night will never end.</em></p>
+    <p>She was 22, I was 10. And it was so bad that I refused to go to the funeral. And I didn't go, and I don't know why.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>I refused to cry at the funeral. When Mum died, I went to it and kept a cold and still face.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Yeah, I know what you mean. I remember another bad moment, and it was when my wife Annie was pregnant and the baby wasn't growing. And the doctor eventually said, <em>it's getting smaller,</em> and we knew. But at that moment, I knew that I wasn't special. And I sort of looked down on myself from a very great height at these two little sad people in their late 30s undergoing a routine miscarriage.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>I saw my mother go from being a cheerful young ex-nurse and, you know, a good-natured mother to being bitter and sad and full of complaint against the world because of miscarriages, nothing else. Because she went away hoping to bring back somebody else. They'd go three months into a pregnancy, they'd tell me, <em>you're going to have a little brother or sister.</em> And then suddenly there'd be a trip to the hospital and there'd be no more talk of brother and sister and they'd be that much sadder and more bitter.</p>
+    <p>Well, I didn't know that I was coming to believe in my heart of hearts that I was the cause of it. Somehow I picked up out of the air the idea that because my birth was induced, I had ruined the works and subsequent deaths were my fault. Sex kills.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>There is a point where you are crushed and compressed by things that are, in other parts of your life, unimaginable.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Oh, having a depressive attack is a bit like sitting around in the first scene of the Macbeth, you know, with the witches. You chase the witches away and get their cauldron and cut your head off and put it in there and you boil it for four or five hours and then you take it out and put it back on your shoulders and you say, <em>I'm going to do this again tomorrow.</em> And you do it for years on end. You boil your head every day for four or five hours.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>That is the old Bunya Hall. It wasn't as flashy in my day. And we used to hold church services there once a month on Sundays. They had their dances as well. And dancers were never allowed to go past midnight on a Saturday night.</p>
+    <p>And it went in for some fairly severe preaching. Some of the sermons were&mdash;they were always very intelligent sermons, but they were very severe sometimes. And there was a sermon I remember when I was four years old. I never forgot it. About the last day and how it would begin with a cloud in the east no bigger than a man's hand.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>And the cloud got closer and closer and eventually there was Jesus Christ with 10,000 of his angels and he had a sharp sword and a sickle saying, <em>behold the harvest is coming.</em> We were divided into those that went to hell and those few that survived.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Yeah, the 144,000. Anyhow, for the next month at least, I went around in terror of every cloud, every small cloud down there in the east.</p>
+    <p>The same cloud did eventually come. It fell on Hiroshima about three years later.</p>
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== THE ROAD ======== -->
+
+  <h2 class="section-title fade-in">Highway One</h2>
+
+  <div class="ellis fade-in">
+    <p>It was agreed that my son Jack would come along on the film and drive the vehicle that took us, when drunk and disorderly, from watering hole to sacred site. It was also foolishly agreed he would choose the vehicle. This was plainly an error.</p>
+    <p>Jack and Alec are old friends and the same age. But their destinations, of course, are different.</p>
+    <p>And so it was begun on Highway 1 in a silly pink car with a teenage sex symbol as our chauffeur. Stan and Ollie, another fine mess. Or Minnesota Fats and Fast Eddie. Or two Forrest Gumps, perhaps, on the road again.</p>
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== CRANBROOK - FAITH ======== -->
+
+  <h2 class="section-title fade-in">The Church at Cranbrook</h2>
+
+  <div class="ellis fade-in">
+    <p>The first sacred site, and it was pretty sacred, was the church in Cranbrook where Murray regularly and brazenly worshipped the threefold God he said in his book had done precious little for him. A choice of belief and lifestyle I never understood.</p>
+    <p>You were drawn to Catholicism by what?</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>The pictures, partly. You could see it.</p>
+    <p>There were many reasons. Another thing was that it had two impossible possibilities. One was that God could turn into bread and wine, and the other one was that a man could rise from the dead and say that he'd bring all the rest of us out of it as well.</p>
+    <p>And I trust the impossible because that's where everything comes from. It's the only door that opens, you know. There was a time when life was impossible, and there was a time when flight was impossible, and there was a time when speech was impossible, a time when it was impossible to go to the moon.</p>
+    <p>I'll tell you about that business of transforming God into bread and wine. It wasn't hard for me to accept at all because I'd seen words transformed into poetry, which is very much the same thing, same sort of thing, you know, that same shift of dimension.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>So you cannibalise the God on a regular basis.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Only at his invitation. Very primitive stuff, religion is. What it's saying is all those people who practiced cannibalism and other things in the past were not wrong, they were on the right track. And this is the track, you know, after which it doesn't have to be done anymore.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>That's the one for the lightning, not me. As a Seventh-day Adventist, then I couldn't drink, smoke, dance, go to the pictures, pick flowers on Saturday&mdash;</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Pick flowers?</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>And there was so much that you couldn't do, and you couldn't play cricket on Saturdays, things like that. There was so much that you couldn't do. There was nothing left other than to get shotgun married at the age of 16 and get on with dreary fecundity and so on.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Yeah. And work in the feed store for 40 years.</p>
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== NEWCASTLE ======== -->
+
+  <h2 class="section-title fade-in">Newcastle</h2>
+
+  <div class="ellis fade-in">
+    <p>The second sacred site, when Murray was off reading poetry to schoolchildren somewhere, was one of mine, a little brick house in Newcastle I lived in when I was first fugitive from grief.</p>
+    <p>I spent a month here when I was 10 and I turned 11 in this house. I was being looked after by my Auntie Jean and Uncle Ben after my sister Margaret was killed on Parramatta Road at the age of 22 and my mother became emotionally indisposed, and there was some thought then, I think, that I might have stayed here for good. In many ways, I wish I had. It's a kind of paradise on earth.</p>
+    <p>A paradise on earth in a little brick cottage on Monmouth Street, exactly the same as all the other little brick cottages of Stockton, a truly working class and truly egalitarian little island of democratic decency across the Hunter River from the steelworks, whose lights and sulfurous belches over the broad water by night were like a fairground, or the great alien ship in <em>Close Encounters</em>.</p>
+    <p>A lovely grimy Victorian town was doomed now, I decided, on Stockton Beach. A town the economically correct would soon turn into an archaeological relic, at one with Nineveh and Tyre, with the sandhills blowing back over it and the pelicans building nests in the mudflats that soon would conquer all.</p>
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== TAREE HIGH SCHOOL ======== -->
+
+  <h2 class="section-title fade-in">Taree</h2>
+
+  <div class="ellis fade-in">
+    <p>His next place of memory was not so sacred for him, more like profane. A place of unfinished business and unlaid ghosts that reached out for him over 35 years and grabbed him by the throat and shook him.</p>
+    <p>I don't like this, Murray. This is imprisonment. This is hard times.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>It was a bit, yeah. This is Taree High School. The only school I ever disliked. The other little schools I went to were in my culture, I suppose, country people, and I don't remember any harassment or bullying there at all.</p>
+    <p>But I came here and got off on the wrong foot somehow. I was a nerd or I was socially inept or something. And so I was always ridiculous and always called by nicknames. No sentence addressed to me could fail to contain a reference to <em>fat</em>.</p>
+    <p>But I learned a couple of things. I learned that the heart of harassment is sexual. It's designed to castrate you. You see, if you get it from your own sex, you can overcome it. You can fight them or something. But if it's from the other sex, you can't do a thing.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>It's unanswerable.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>It's unanswerable. And every day you're going to be ridiculed in that department.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>You said in your book, <em>The Black Dog</em>, that some girls would pretend to be friends with you and then run away and giggle and shriek with laughter.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Shriek with laughter. There'd be sort of heavy comings-on to me and then they'd run away shrieking with laughter. I learned a lot of things. Like, I would never go to a demonstration because at every demonstration I can hear the sounds of this quadrangle.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>So any organised cat-calling is bad?</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Yeah. Nothing that a mob does is clean. Any mob.</p>
+    <p>What I really did, I suppose, was to make a new body for myself out of poetry, a body of work. Since the flesh body was unacceptable to womankind, I would make myself a perpetual body of poetry.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>But in 1988 you ran into one kid, and she used one of the nicknames&mdash;</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Ah, one of the nicknames, yeah. And I just came apart. I started falling apart immediately. You know, crying jags when we were driving. Cigars gave me up, which was a benefit. And then I had the sort of phantom heart attacks, which were really just panic attacks.</p>
+    <p>And I slowly started to use the weapon of poetry to try and analyse it and dig out what was crosswise in my head and what was kind of making me crazy. And I finally got it. It was particularly in a poem called <em>Burning Want.</em></p>
+  </div>
+
+  <div class="poetry fade-in">
+    <span class="poetry-title">"Burning Want"</span>
+    From just on puberty, I lived in funeral.<br>
+    Mother dead of miscarriage, father trying to be dead,<br>
+    <em>lovemaking brought death</em> was the unuttered principle.<br><br>
+    I met a tall adopted girl some kids thought aloof,<br>
+    but she was intelligent.<br>
+    Her poise of white-blonde hair proved her<br>
+    no kin to the squat tan couple who loved her.<br>
+    Only now do I realise she was my first love.<br><br>
+    But all my names were fat names, at my new town school.<br>
+    I had forty more years, with one dear remission,<br>
+    of a white paralysis:<br><br>
+    <em>She's attracted. It's not real.<br>
+    Nothing is enough. She's mistaken.<br>
+    She'll die. Go now. She'll tell.<br>
+    Any minute, she'll laugh.</em><br><br>
+    Whether other hands reached out to Marion or didn't,<br>
+    at night in her training ward<br>
+    she had a fatal accident,<br>
+    alone at night, they said, with a lethal injection,<br>
+    and was spared from seeing<br>
+    what my school did to the world.
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== SYDNEY UNIVERSITY ======== -->
+
+  <h2 class="section-title fade-in">Sydney University</h2>
+
+  <div class="ellis fade-in">
+    <p>And then we came to the big smoke and Sydney Uni. It was all very scary.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Did you ever make any really silly mistakes when you first came to the city?</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Yeah, I would get on the wrong tram. I believed I lived in Moore Park when in fact I lived in Moore Park Road, Paddington, and I'd wind up in Maroubra hailing taxis to get back to my absolute place and it took a long time to orient me. It was awful. I'd sit in the boarding house room with a radio trying to tune into 2LM, which was Lismore, trying to get back some sense of the voices of the town that I came from. I was so lonely, I was so unhappy.</p>
+    <p>We came from a cloud of provincial unknowing to the mannerly Tennysonian haunt of Clive and Germaine and Robert Hughes and Bruce Beresford and Michael Kirby and Mary Gordon and John Bell and Richard Wherrett and Richard Butler. Two lonely brotherless fundamentalists uncertain who we were.</p>
+    <p>And we shared filthy rooms for two years, and thereafter slept on each other's floors in most of the major cities of the world, and in parks and golf courses, disputing about everything and playing pool and drinking coffee, and despite all ethical and moral and religious difference, the loyalty persisted through hard times and flush, great quarrels and family tragedies.</p>
+    <p>His girth was slimmer in 1959 when I met him first, but his buoyancy, his erudition, his vivid rivalry, and witch's cackle are much the same.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Yeah, we were lucky. We got here just before politics, in that nice period when we were all pretentious and theatrical. And interesting, important figures came out of the play. Free of social content.</p>
+    <p>And just as I was leaving in 1962, the first fraternal telegrams were turning up from Cuba. Great Puritanism began. Or Calvinism. Well, yes, it was a kind of secular Calvinism which set everybody in their roles, you know. You and I became white Anglo-Australian male patriarchal hegemonists, and there could be no forgiveness. We couldn't be saved. And colonisers of the female body. Very enjoyable.</p>
+    <p>But yeah, they started teaching colonial post-literature in the English department. We didn't fit into that too well.</p>
+  </div>
+
+  <div class="poetry fade-in">
+    Fifteen years ago, Ellis brought me here to show me his university, and he wrote about it. I took my little son through Sydney Uni recently to make him want to go there like his dad. Much had changed. Many big, square, glassy buildings stood athwart old happy memory. But enough was the same, looming and sandstone, grass and gargoyle, silent, forbidding&mdash;to make both him and me afraid. It was a place I never conquered, nor yet became a member of, or alumnus, or incidental fungus, anything. I was a brief ghost, soon gone.
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>It was under these arches, you know, that I met Clive James in the first week of the first term, 1957. And we got talking about ancient drama, and I said, the beginning of modern drama in the West is in Latin. And I started singing to him. Clive was a bit taken aback by it, and then we settled back to talking about Second World War aircraft, which was a great mutual interest.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Many of our old acquaintances were overseas being celebrities, or facing down Iraq, or sitting on the High Court. But we did have a small reunion with a cartoonist, a children's novelist, a museum administrator, two actors, a librarian and a political pundit, and we drank some good red and remembered.</p>
+  </div>
+
+  <div class="other fade-in">
+    <span class="speaker-name">Friend</span>
+    <p>This is where people like Les were so much a stabilising influence, that somehow we all, I think, realised that there was something a lot more solid in people like Les Murray, perhaps, than the sort of superfices that were coming out in the rest of it. I mean, Les produced a lot of great jokey things himself. I treasure a little quatrain he wrote on an ear in Onyxwa once, which said: <em>I shot an arrow in the air. It fell to earth in Taylor Square, transfixing to my great delight a policeman and a sodomite.</em></p>
+    <p>I've been trying to escape from attribution for that one for years.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Let's talk about sex. We were in a hovering eroticism that was not always fulfilled and was very unrealistic.</p>
+  </div>
+
+  <div class="other fade-in">
+    <span class="speaker-name">Friend</span>
+    <p>Well, you and I were engaged on one occasion for approximately 24 hours. So I had people coming up to me in the quadrangle saying, <em>you're engaged to Ellis.</em> And they didn't know whether they were meant to say congratulations or offer commiserations or what. And I was just left in a state of shock.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>I would have married anybody that week.</p>
+  </div>
+
+  <div class="other fade-in">
+    <span class="speaker-name">Friend</span>
+    <p>And the proposal of marriage was a form of seduction. One night, I was crossing at the lights, and Ellis was walking in the other direction, and he said, <em>oh, I've been trying to ring you, I want you to marry me.</em> And up the union steps. And I hadn't had a bit of interest in him at all. And then he didn't ring me. And a week went by, and I thought, <em>oh, he's not bad.</em></p>
+    <p>And then of course it didn't eventually. Because you went to Lord Howe Island with Germaine Greer. And I got some lovely letters.</p>
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== CANBERRA ======== -->
+
+  <h2 class="section-title fade-in">Canberra</h2>
+
+  <div class="ellis fade-in">
+    <p>When did you first form a view of how you look?</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Me? Oh, early in childhood, and I thought I looked soupy and soppy, you know, and kind of off the planet a bit. And I was wearing a hat and bare feet, and that was the wrong order. In the middle classes, you wore footwear and no hat. And then a fella called me Nugget, and I realised I was fat.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>David Naseby, like many an artist before him, was drawn to portraying Les by one of his poems, <em>The Last Hellos</em>, because he was trying then to paint his own dead parents from memory, and it made him cry. Which line set him off, I asked. <em>No more bluey dog,</em> he said.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>We drove on down the Hume, bypassing his detested Balmain, breeding ground of fewer good poets, he said, than Chatswood, towards Canberra, where, having married at 24, Les embarked on the second stage of his gentrification as a public servant, using his working knowledge of no more than 12 languages to translate for the Prime Minister, John Gorton, such documents as needed to be deciphered or tactfully worded.</p>
+    <p>It was in this thin autumnal European air that he wrote, out of aching memory of lost adolescence and broken childhood, the first book, <em>The Weatherboard Cathedral</em>, that enhanced his name in the great world, here and overseas.</p>
+    <p>There was a great line about Canberra: <em>In twilight gardens, admirals pick tomatoes.</em></p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>J.R. Rowland, Australian ambassador to Moscow, Paris, various places. Good man, very good man, liked him a lot.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>It's a lovely line.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>It's the best poem about Canberra I ever penned, still.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>It's one of yours.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>No, it's not mine, it's J.R. Rowland.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>I like the one that rhymes.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Yeah, you tend to, I know that.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Yes, I'm autistic, I need to know what's coming.</p>
+  </div>
+
+  <div class="poetry fade-in">
+    Eavesdropping rain acquired<br>
+    a sense of mountains in the air.<br>
+    Dark houses sleeping beneath<br>
+    the freezing drip of European trees.<br>
+    Lost paddock and stone under the lake.<br>
+    And only a few souls still awake<br>
+    to polish a bead, to turn a page,<br>
+    to label a fly or a golden age,<br>
+    and a thousand redeeming projects<br>
+    they keep safe from the government of the day.
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Yeah. That was written one fairly depressed night in Canberra, when the rain was dripping down.</p>
+    <p>When I was here, there was another thing happened, what they were beginning to call people's democracy, and it wasn't. And a fellow came round, wanting some signatures against Vietnam. And I probably would have signed if he hadn't been so damned arrogant about it. He expected the signatures. And it seemed, the bargain was, you could have a little bit of fame in return for the signatures. They didn't care about what you wrote. They only cared about your political usefulness, your clout.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Like the goose could have all its good food as long as you've got its liver at the other end.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Exactly. And I wasn't going to give them any foie gras, and I never have.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>But there was a moment where a steel door closed in your mind, wasn't it? You turned your face against political activism of that sort, or of that organised sort.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Yeah, and it wasn't my class for one thing. I knew that I would only be there on sufferance. It was not what my people did, not the way they did politics.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>What do your people do?</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>They complain. They don't expect government to provide anything. They hide themselves from the government. They try to get away with things. They live under the lap.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>But this is dog-patch fundamentalism, Murray.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>That's right. Yeah, I like it. It's my kind of people. You don't expect that you're ever going to be privileged, because privilege comes to the eloquent and the educated.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>But is it your mission to give them the vocabulary they lack?</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>My mission is to irritate the hell out of the eloquent who would oppress them by being a paradox that their prejudices can't assimilate. The subhuman redneck who writes poems.</p>
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== KIM BEAZLEY ======== -->
+
+  <h2 class="section-title fade-in">The Lesser Temple</h2>
+
+  <div class="ellis fade-in">
+    <p>Murray's complacent unwillingness to be more politically aligned concerned me, so I stealthily determined to introduce him, and not for just that reason, to the one politician he'd probably like, an overweight university man of military preoccupation like himself, Kim Beazley.</p>
+    <p>I thought you should meet him because you've got a lot in common: this yearning drift towards Catholicism, the same acquaintance in your family life with mental illness, and the same love&mdash;</p>
+  </div>
+
+  <div class="other fade-in">
+    <span class="speaker-name">Someone</span>
+    <p>Hungarian wives, too.</p>
+  </div>
+
+  <div class="other fade-in">
+    <span class="speaker-name">Someone else</span>
+    <p>Not the same Hungarian one!</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Beazley kept us waiting&thinsp;&mdash;&thinsp;the first sign of the ego trip. On the paltry excuse of the worst and most divisive national crisis in 20 years, did he not realise our time was valuable?</p>
+  </div>
+
+  <div class="other fade-in">
+    <span class="speaker-name">Kim Beazley</span>
+    <p>Ellis is a great writer, but a terrible speechwriter. Basically, it's all unusable. Basically, his view of the other side of politics is so obscene&thinsp;&mdash;&thinsp;very funny, but so dreadfully obscene&thinsp;&mdash;&thinsp;that you can pass it around to your Cabinet colleagues or your shadow ministry colleagues, but you can't pass it out to the broader public, lest you be obliged to apologise.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>You gravely underrate the black humour of the public. We're much more like New Zealanders than you think.</p>
+    <p>Jack went off to the War Memorial, where he was to meet us. While back at the Lesser Temple, the two big armchair generals spoke of matters military for no more than an hour and a half.</p>
+  </div>
+
+  <div class="other fade-in">
+    <span class="speaker-name">Kim Beazley</span>
+    <p>You see, I like what comes out in vignettes now on Australian soldiers in World War I. I saw one in a book recently, basically on the British experience in World War I. It just had this sort of throwaway line about the Australians. And it said, you know, by the end of the war, the German intelligence had a rule of thumb: that if Australians appeared on your front, within 48 hours you'd be attacked.</p>
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== THE WAR MEMORIAL ======== -->
+
+  <h2 class="section-title fade-in">The War Memorial</h2>
+
+  <div class="poetry fade-in">
+    Ah, I was soiled as money, old as rag,<br>
+    I was building myself a humpy beside a gully of woes.<br>
+    Till the bump of your drum, the fit of your turned-up hat,<br>
+    drew me to eat your stew, salute your flag,<br>
+    and carry your rifle far away to your wars.<br><br>
+    <em>Is war very big?</em>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Is war very big? As big as New South Wales.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>As big as grief. There's an immense amount of grief here.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>If you could harness that grief, you could light a city for a hundred years.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Oh, God, yeah, for a long, long time. Harnessing grief of this sort, though, can be dangerous. The Germans harnessed theirs and made another war out of it.</p>
+    <p>Never such innocence again? That's about it, yeah. You've got to hope that most of these died quick and clean, and you know that they didn't.</p>
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== OLD PARLIAMENT ======== -->
+
+  <h2 class="section-title fade-in">Old Parliament Steps</h2>
+
+  <div class="ellis fade-in">
+    <p>My final sacred site was old Parliament steps on which in 1975 I saw Gough Whitlam cry, <em>maintain your rage.</em> I knew in a frozen instant all was lost.</p>
+    <p>There I drank a bit with Les and grew, I fear, a trifle impatient.</p>
+    <p>You, Murray, are an idle bastard. You are supposed to be the unacknowledged legislator of history.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Unacknowledged, you see. If they acknowledged me, I would solve it all.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>I'll acknowledge you. I'll make you poet laureate.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>I don't want your poet laureate.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>The man is insatiable.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>What did your great master, Gore Vidal, say about the splendidly developed social welfare of this country?</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>He said, <em>it's a wonderful country. You look after people so well&thinsp;&mdash;&thinsp;that old crippled couple, the Whitlams, for instance, down to their last cup of caviar&thinsp;&mdash;&thinsp;and how you do care for them.</em></p>
+    <p>I plan to manufacture you, Murray, as a soft toy. You pull the string and it goes&mdash;</p>
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== POOL - YASS ======== -->
+
+  <h2 class="section-title fade-in">Near Yass</h2>
+
+  <div class="ellis fade-in">
+    <p>We drove back and stopped near Yass, where Les, once aged 20, looked up at strange new hills and trees and rocks and realised he was in his first foreign country, somewhere other than home. And we had, like old competitive friends, a biennial game of pool, with the usual references to that long-loved film, <em>The Hustler</em>, and Fast Eddie Felson, and Minnesota Fats.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>It does us good, I think, to try ourselves out at something in which we have no talent whatever.</p>
+    <p>What was the great movie of your life, Robert? Mine was <em>From Here to Eternity</em>. Got me through my awful teenage. I could recite every word of it at one time.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Mine was <em>He Who Must Die</em>, the story of the Christ. The Miracle Play. That was what taught me that movies could be an experience like, and better than, life itself. And they weren't just wallpaper in the mind.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Movies came out of the air. They didn't have actors in them or anything. They were made mystically somewhere. And I never cared who the actor's name was. But I knew every movie <em>From Here to Eternity</em> because it was my situation&thinsp;&mdash;&thinsp;despised and harassed and persecuted bugle player. But I was also the strong, masterful Sergeant Warden. I felt it all on my skin, that film.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>The pool table is the great demonstration of the infinitude of human possibility. There is no pool game that resembles any other pool game. And yet there are only 15 variables. And a few feet. Imagine predicting life itself.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>You can almost be proud to be no good at it, because it means you're not a dictator forcing people into&mdash; Is that not the airport?</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Yeah, that's where I am. That's how good I am.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Can you play a game of billiards? Can you cannon off the push?</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p><em>I can cannon off the shithouse,</em> said the bastard from the bush.</p>
+    <p><em>Would you knock him down and rob him,</em> said the captain of the push. <em>I'd knock him down and fuck him,</em> said the bastard from the bush. <em>Would you have a cigarette, mate,</em> said the captain of the push. <em>I'll take the flame and pack it,</em> said the bastard from the bush.</p>
+    <p>One of the great lines in all literature.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>It's the small victories that are the best.</p>
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== BACK TO SYDNEY ======== -->
+
+  <h2 class="section-title fade-in">Back to Sydney</h2>
+
+  <div class="ellis fade-in">
+    <p>We visited at last, on getting back to Sydney, the places we first had known well when we lived at Bondi and Waverley, together in part. On the golf course we had slept on for a week, or was it only a night? As in the film I made about those years, <em>The Nostradamus Kid</em>. It didn't seem any time had passed at all, but of course it had, and time is fleeting.</p>
+    <p>What's it all about, Murray? Are we mere wriggling viruses under some cosmic microscope in a grand experiment that is nearing its end?</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>They have their dignity, perhaps. I don't know whether they wriggle or not. It's all very mysterious to me. I can't help thinking that it changes... It doesn't change, but we change our opinions about it all the time, our points of view.</p>
+  </div>
+
+  <div class="ellis fade-in">
+    <p>Beazley, laughing, claimed he'd think about the laureateship when the film wound down and receded. And we each went back to our chosen calling of intellectual roustabout and poetical busker, Murray as usual among schoolchildren, explaining as always the unknowable origins of his most evocative and troubling work.</p>
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== AN ABSOLUTELY ORDINARY RAINBOW ======== -->
+
+  <h2 class="section-title fade-in">An Absolutely Ordinary Rainbow</h2>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>A fella stood up in it, in my mind, who wanted to weep. You know, weep in Martin Place, weep in the most public space in Sydney. And all I had to do was make sure that I never attached his weeping to any particular cause. You see, the title says, <em>Absolutely Ordinary Rainbow.</em> He's an absolute. He's weeping. The people around him do exactly what you do when you're reading a poem. They have to make up their minds what it means to them, you know. And a mysterious poem&thinsp;&mdash;&thinsp;I don't understand it myself.</p>
+  </div>
+
+  <div class="poetry fade-in">
+    <span class="poetry-title">"An Absolutely Ordinary Rainbow"</span>
+    The word goes round Repins,<br>
+    the murmur goes round Lorenzini's.<br>
+    At Tattersall's, men look up from sheets of numbers,<br>
+    the Stock Exchange scribblers forget the chalk in their hands<br>
+    and men with bread in their pockets leave the Greek Club.<br>
+    <em>There's a fellow crying in Martin Place. They can't stop him.</em><br><br>
+
+    The crowds are edgy with talk and more crowds come hurrying.<br>
+    Many run in the back streets<br>
+    which minutes ago were busy main streets, pointing:<br>
+    <em>There's a fellow weeping down there. No one can stop him.</em><br><br>
+
+    The man no one approaches<br>
+    simply weeps, and does not cover it,<br>
+    weeps not like a child, not like the wind, like a man.<br>
+    And uniforms back in the crowd who tried to seize him<br>
+    stare out at him, and feel with amazement<br>
+    their minds longing for tears as children for a rainbow.<br><br>
+
+    <em>Ridiculous,</em> says a man near me,<br>
+    and stops his mouth with his hands<br>
+    as if it uttered vomit&mdash;<br>
+    and I see a woman, shining, stretch her hand<br>
+    and shake as she receives<br>
+    the gift of weeping;<br>
+    as many as follow her also receive it.<br><br>
+
+    And when he stops, he simply walks between us,<br>
+    mopping his face with the dignity of one<br>
+    who has wept, and now has finished weeping.<br><br>
+
+    Evading believers, he hurries off down Pitt Street.
+  </div>
+
+  <div class="section-break">&#x2022; &nbsp; &#x2022; &nbsp; &#x2022;</div>
+
+  <!-- ======== CODA ======== -->
+
+  <h2 class="section-title fade-in">Coda</h2>
+
+  <div class="ellis fade-in">
+    <p>And I went home with a new sense of old times and loss and gain, my family, visiting parrots, and Annie, my wife of 30 years, and allowed myself a prickly judgment or two on the one true immortal I would ever know well.</p>
+    <p>Murray and I are brothers, and with all the warring contumely that means, we have each other forever, whatever that means.</p>
+    <p>And I fear that Murray, in being only a poet, has failed in his duty to be also completely a citizen. I think that is so. I fear he has done too little with his life, and in doing only the poetry, he has missed out on some fraction of existence which would have done him good.</p>
+  </div>
+
+  <div class="murray fade-in">
+    <span class="speaker-name">Les Murray</span>
+    <p>Well, my thanks to everyone concerned, particularly the actors. This is rather like attending a reading after my death.</p>
+  </div>
+
+  <div class="poetry fade-in">
+    Half-buried timbers, chain corduroy,<br>
+    lead out into the sand<br>
+    which bare feet, wincing, crutch and crotch,<br>
+    spurn for the summer surf's embroidery<br>
+    and insects stay up on the land.<br><br>
+    A storm engrossing half the sky<br>
+    in broccoli and seething drab<br>
+    and standing on one foot<br>
+    over the country burns like a lit torch.<br>
+    Lightning turns air to elixir at every grab.<br><br>
+    The younger sister wavering shouts, <em>stay dead!</em><br>
+    She knows how impossibility is the only door that opens.<br>
+    She pities his fall, leg under one knee,<br>
+    but her power is his death<br>
+    and can't be dignified.
+  </div>
+
+  <div class="ellis fade-in">
+    <p>He's got the eyes. There's nothing in them, but that's the way they are.</p>
+    <p>Old man's hands, like hands on a deathbed.</p>
+    <p>You get past the tongue and the drool, and that's Murray all right. That's him.</p>
+  </div>
+
+</main>
+
+<footer class="colophon">
+  <p><em>Bastards from the Bush: A Journey with Bob Ellis &amp; Les Murray</em></p>
+  <p>A film by Bob Ellis &middot; 1998</p>
+  <p style="margin-top: 1rem; opacity: 0.6;">Transcript formatted for reading</p>
+</footer>
+
+<script>
+  // Intersection Observer for fade-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
